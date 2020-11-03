@@ -10,12 +10,16 @@ const Query = {
     studentById: (root, args, context, info) => {
         //args will contain parameter passed in query
         return db.students.get(args.id);
-    }
+    },
+    colleges: () =>db.colleges.list()
 }
 
 const Student = {
-    fullName:(root, args, context, info) => {
-        return root.firstName+':'+root.lastName
+    fullName: (root, args, context, info) => {
+        return root.firstName + ':' + root.lastName
+    },
+    college: (root) => {
+        return db.college.get(root.collegeId);
     }
 }
 module.exports = { Query, Student }
