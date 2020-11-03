@@ -11,7 +11,8 @@ const Query = {
         //args will contain parameter passed in query
         return db.students.get(args.id);
     },
-    colleges: () => db.colleges.list()
+    colleges: () => db.colleges.list(),
+    sayHello:(root, args, context, info) => `Hi ${args.name} GraphQL server says Helloe to you!!`
 }
 
 const Student = {
